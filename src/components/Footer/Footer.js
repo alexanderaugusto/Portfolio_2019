@@ -31,13 +31,18 @@ export default function Footer() {
           <Col md="3">
             <Nav>
               <NavItem>
-                <NavLink href="https://creative-tim.com/contact-us?ref=blkdsr-footer">
-                  Contato
+                <NavLink href="/about">
+                  About
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="https://creative-tim.com/about-us?ref=blkdsr-footer">
-                  Sobre
+                <NavLink href="/services">
+                  Services
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/contact">
+                  Contact
                 </NavLink>
               </NavItem>
             </Nav>
@@ -48,42 +53,42 @@ export default function Footer() {
               <Button
                 className="btn-icon btn-neutral btn-round btn-simple"
                 color="default"
-                href="https://twitter.com/creativetim"
+                href="https://twitter.com/alexaasf_10"
                 id="tooltip622135962"
                 target="_blank"
               >
                 <i className="fab fa-twitter" />
               </Button>
               <UncontrolledTooltip delay={0} target="tooltip622135962">
-                Me siga
+                Follow me
               </UncontrolledTooltip>
               <Button
                 className="btn-icon btn-neutral btn-round btn-simple"
                 color="default"
-                href="https://www.facebook.com/creativetim"
+                href="https://www.facebook.com/profile.php?id=100004918871887"
                 id="tooltip230450801"
                 target="_blank"
               >
                 <i className="fab fa-facebook-square" />
               </Button>
               <UncontrolledTooltip delay={0} target="tooltip230450801">
-                Curta-me
-                </UncontrolledTooltip>
+                Like me
+              </UncontrolledTooltip>
               <Button
                 className="btn-icon btn-neutral btn-round btn-simple"
                 color="default"
-                href="https://dribbble.com/creativetim"
+                href="https://www.linkedin.com/in/alexânder-augusto-5b8719149"
                 id="tooltip318450378"
                 target="_blank"
               >
-                <i className="fab fa-dribbble" />
+                <i className="fab fa-linkedin" />
               </Button>
               <UncontrolledTooltip delay={0} target="tooltip318450378">
-                Me siga
-                </UncontrolledTooltip>
+                Follow me
+              </UncontrolledTooltip>
             </div>
           </Col>
-        </Row>
+        </Row> 
       </Container>
     </footer>
   )

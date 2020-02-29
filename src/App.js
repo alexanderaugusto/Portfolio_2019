@@ -11,7 +11,7 @@ import routes from './routes'
 export default function App() {
   return (
     <BrowserRouter>
-      {routes.map((route, key) => <Route key={key} path={route.path} component={route.component} />)}
+      {routes.map((route, key) => <Route exact={route.exact} key={key} path={route.path} component={route.component} />)}
     </BrowserRouter>
   )
 }

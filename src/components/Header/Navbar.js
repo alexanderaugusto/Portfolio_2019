@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react"
+import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import {
   Collapse,
@@ -17,25 +17,19 @@ export default function HeaderNavbar() {
   const [collapseOut, setCollapseOut] = useState("")
   const [color, setColor] = useState("navbar-transparent")
 
-  const changeColor = useCallback(() => {
-    if (
-      document.documentElement.scrollTop > 99 ||
-      document.body.scrollTop > 99
-    ) {
-      setColor("bg-info")
-    } else if (
-      document.documentElement.scrollTop < 100 ||
-      document.body.scrollTop < 100
-    ) {
-      setColor("navbar-transparent")
-    }
-  }, [])
-
   useEffect(() => {
+    function changeColor() {
+      if (document.documentElement.scrollTop > 99 || document.body.scrollTop > 99) {
+        setColor("bg-info")
+      } else if (document.documentElement.scrollTop < 100 || document.body.scrollTop < 100) {
+        setColor("navbar-transparent")
+      }
+    }
+
     window.addEventListener("scroll", changeColor())
 
     return () => window.removeEventListener("scroll", changeColor())
-  }, [changeColor])
+  })
 
   const toggleCollapse = () => {
     document.documentElement.classList.toggle("nav-open")
@@ -99,10 +93,10 @@ export default function HeaderNavbar() {
             <NavItem className="p-0">
               <NavLink
                 data-placement="bottom"
-                href="https://twitter.com/CreativeTim"
+                href="https://twitter.com/alexaasf_10"
                 rel="noopener noreferrer"
                 target="_blank"
-                title="Me siga no Twitter"
+                title="Follow me in twitter"
               >
                 <i className="fab fa-twitter" />
                 <p className="d-lg-none d-xl-none">Twitter</p>
@@ -111,10 +105,10 @@ export default function HeaderNavbar() {
             <NavItem className="p-0">
               <NavLink
                 data-placement="bottom"
-                href="https://www.facebook.com/CreativeTim"
+                href="https://www.facebook.com/profile.php?id=100004918871887"
                 rel="noopener noreferrer"
                 target="_blank"
-                title="Curta-me no Facebook"
+                title="Like me in facebook"
               >
                 <i className="fab fa-facebook-square" />
                 <p className="d-lg-none d-xl-none">Facebook</p>
@@ -123,20 +117,23 @@ export default function HeaderNavbar() {
             <NavItem className="p-0">
               <NavLink
                 data-placement="bottom"
-                href="https://www.instagram.com/CreativeTimOfficial"
+                href="https://www.linkedin.com/in/alexânder-augusto-5b8719149"
                 rel="noopener noreferrer"
                 target="_blank"
-                title="Me siga no Instagram"
+                title="Follow me in linkedin"
               >
-                <i className="fab fa-instagram" />
-                <p className="d-lg-none d-xl-none">Instagram</p>
+                <i className="fab fa-linkedin"></i>
+                <p className="d-lg-none d-xl-none">Linkedin</p>
               </NavLink>
             </NavItem>
             <NavItem className="p-0">
-              <NavLink href="/about">Sobre</NavLink>
+              <NavLink href="/about">About</NavLink>
             </NavItem>
             <NavItem className="p-0">
-              <NavLink href="/contact">Contato</NavLink>
+              <NavLink href="/services">Services</NavLink>
+            </NavItem>
+            <NavItem className="p-0">
+              <NavLink href="/contact">Contact</NavLink>
             </NavItem>
           </Nav>
         </Collapse>

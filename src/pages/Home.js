@@ -14,10 +14,6 @@ export default function Home() {
       <div className="wrapper">
         <Header />
 
-        <div className="main">
-
-        </div>
-
         <Footer />
       </div>
     </>
