@@ -86,6 +86,18 @@ export default function Footer() {
               <UncontrolledTooltip delay={0} target="tooltip318450378">
                 Follow me
               </UncontrolledTooltip>
+              <Button
+                className="btn-icon btn-neutral btn-round btn-simple"
+                color="default"
+                href="https://github.com/alexanderaugusto"
+                id="tooltip318450379"
+                target="_blank"
+              >
+                <i className="fab fa-github" />
+              </Button>
+              <UncontrolledTooltip delay={0} target="tooltip318450379">
+                Follow me
+              </UncontrolledTooltip>
             </div>
           </Col>
         </Row> 

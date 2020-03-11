@@ -10,6 +10,7 @@ import {
   Col,
   UncontrolledTooltip
 } from 'reactstrap'
+import cv from '../assets/tmp/cv.pdf'
 
 export default function About() {
   useEffect(() => {
@@ -115,7 +116,7 @@ export default function About() {
                   become a data scientist, I started to learn about this area and I was already fascinated.
                 </p>
                 <div className="btn-wrapper mb-3">
-                  <Button color="info">Download CV</Button>
+                  <a href={cv} download><Button color="info">Download CV</Button></a>
                 </div>
               </Col>
               <Col lg="4" md="5">
@@ -337,7 +338,7 @@ export default function About() {
                         src={require("../assets/img/otavio_augusto.jpg")}
                         style={{ width: "150px" }}
                       />
-                      <p>
+                      <p style={{ height: 90 }}>
                         Civil Engineering student and responsible for the financial part of Central Modas.
                       </p>
                       <div className="btn-wrapper profile">
@@ -389,7 +390,7 @@ export default function About() {
                         src={require("../assets/img/paulo_junior.jpg")}
                         style={{ width: "150px" }}
                       />
-                      <p>
+                      <p style={{ height: 90 }}>
                         Business student and responsible for the commercial and marketing part of Central Modas.
                       </p>
                       <div className="btn-wrapper profile">

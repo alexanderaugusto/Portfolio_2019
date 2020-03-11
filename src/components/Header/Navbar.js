@@ -18,7 +18,8 @@ export default function HeaderNavbar() {
   const [color, setColor] = useState("navbar-transparent")
 
   useEffect(() => {
-    function changeColor() {
+    const changeColor = () => {
+      console.log("entrou")
       if (document.documentElement.scrollTop > 99 || document.body.scrollTop > 99) {
         setColor("bg-info")
       } else if (document.documentElement.scrollTop < 100 || document.body.scrollTop < 100) {
@@ -26,9 +27,9 @@ export default function HeaderNavbar() {
       }
     }
 
-    window.addEventListener("scroll", changeColor())
+    window.addEventListener("scroll", changeColor, false)
 
-    return () => window.removeEventListener("scroll", changeColor())
+    return () => window.removeEventListener("scroll", changeColor)
   })
 
   const toggleCollapse = () => {
@@ -124,6 +125,18 @@ export default function HeaderNavbar() {
               >
                 <i className="fab fa-linkedin"></i>
                 <p className="d-lg-none d-xl-none">Linkedin</p>
+              </NavLink>
+            </NavItem>
+            <NavItem className="p-0">
+              <NavLink
+                data-placement="bottom"
+                href="https://github.com/alexanderaugusto"
+                rel="noopener noreferrer"
+                target="_blank"
+                title="Follow me on github"
+              >
+                <i className="fab fa-github"></i>
+                <p className="d-lg-none d-xl-none">Github</p>
               </NavLink>
             </NavItem>
             <NavItem className="p-0">

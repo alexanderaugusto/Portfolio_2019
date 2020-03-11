@@ -3698,6 +3698,11 @@ elliptic@^6.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.0"
 
+emailjs-com@^2.4.1:
+  version "2.4.1"
+  resolved "https://registry.npmjs.org/emailjs-com/-/emailjs-com-2.4.1.tgz#a785b2c13a232714a0376938ecc13a1bfaad6e62"
+  integrity sha512-JOnOm+dRv1Rc+yy+Y0QXKxYYdpbRl7C9xlOwKyTmpbCqAM6rcXRAc/D1igiPHqn1eTvCKzpeursTqfX6e7bdBw==
+
 emoji-regex@^7.0.1, emoji-regex@^7.0.2:
   version "7.0.3"
   resolved "https://registry.npmjs.org/emoji-regex/-/emoji-regex-7.0.3.tgz#933a04052860c85e83c122479c4748a8e4c72156"
@@ -8666,6 +8671,11 @@ react-app-polyfill@^1.0.6:
     raf "^3.4.1"
     regenerator-runtime "^0.13.3"
     whatwg-fetch "^3.0.0"
+
+react-bootstrap-sweetalert@^5.1.9:
+  version "5.1.9"
+  resolved "https://registry.npmjs.org/react-bootstrap-sweetalert/-/react-bootstrap-sweetalert-5.1.9.tgz#3f88125d2a4bac199dc7dd751341719e91e0dcfe"
+  integrity sha512-/FVTTN4l5TEOTT6PpIZ6k1/61lKZ0hSWx2pY1xcEI2ZJ1NKrajaLAEW3CHka6yDWkdc+VKGCTk0sFnX64qCKkA==
 
 react-bootstrap-switch@^15.5.3:
   version "15.5.3"
