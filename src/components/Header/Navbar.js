@@ -19,7 +19,6 @@ export default function HeaderNavbar() {
 
   useEffect(() => {
     const changeColor = () => {
-      console.log("entrou")
       if (document.documentElement.scrollTop > 99 || document.body.scrollTop > 99) {
         setColor("bg-info")
       } else if (document.documentElement.scrollTop < 100 || document.body.scrollTop < 100) {

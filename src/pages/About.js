@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Footer, Navbar } from '../components'
 import {
   Button,
   Card,
@@ -10,62 +9,110 @@ import {
   Col,
   UncontrolledTooltip
 } from 'reactstrap'
+import { Footer, Navbar, VerticalTimeline, ScrollingModal } from '../components'
+import { jobTimeline, academic, job, projects } from '../constants/variables'
 import cv from '../assets/tmp/cv.pdf'
 
 export default function About() {
+  const [tab, setTab] = useState("tab2")
+  const [modal, setModal] = useState({ isOpen: false, title: "", body: null })
+
   useEffect(() => {
     document.body.classList.toggle("landing-page")
 
     return () => document.body.classList.toggle("landing-page")
   }, [])
 
-  const isSelected = (card) => card === cardSelected.title ? "upper bg-default" : ""
+  const isSelected = (card) => card === tab ? "upper bg-default" : ""
 
-  const handleSelect = (title, component) => setCardSelected({ title, component })
+  const handleSelect = (card) => setTab(card)
 
-  const academic = () => {
-    return (
-      <>
-        <h1>
-          Academic
-        </h1>
-        <p>
-          I am a student of Computer Engineering at the Instituto Nacional de Telecomunicações (Inatel).
-          I started studying at 01/2017 and I intend to graduate on 12/2021.I'm a student
-        </p>
-      </>
-    )
+  const handleShow = (e, card) => {
+    e.preventDefault()
+    const body = card.fullText.map((item, index) => {
+      return (
+        <div key={index}>
+          <h4 style={{ color: "grey", fontWeight: "bold", marginTop: 20 }}>{item.title}</h4>
+          <p>{item.text}</p>
+        </div>
+      )
+    })
+    setModal({ ...modal, title: card.title, body, isOpen: true })
   }
 
-  const job = () => {
-    return (
-      <>
-        <h1>
-          Job
-        </h1>
-        <p>
-          I am currently doing an internship at Aurem. I work with the development of Aurem Genus, both the
-          frontend and the backend.
-        </p>
-      </>
-    )
+  const renderTabs = () => {
+    if (tab === "tab1") {
+      return (
+        <>
+          <h1>{academic.title}</h1>
+          <p>{academic.introduction}</p>
+          <br />
+          <a
+            className="font-weight-bold text-info mt-5"
+            href=" #"
+            onClick={e => handleShow(e, academic)}
+          >
+            Show all{" "}
+            <i className="tim-icons icon-minimal-right text-info" />
+          </a>
+        </>
+      )
+    }
+    else if (tab === "tab2") {
+      return (
+        <>
+          <h1>{job.title}</h1>
+          <p>{job.introduction}</p>
+          <br />
+          <a
+            className="font-weight-bold text-info mt-5"
+            href=" #"
+            onClick={e => handleShow(e, job)}
+          >
+            Show all{" "}
+            <i className="tim-icons icon-minimal-right text-info" />
+          </a>
+        </>
+      )
+    }
+    else if (tab === "tab3") {
+      return (
+        <>
+          <h1>{projects.title}</h1>
+          <ul className="list-unstyled mt-5">
+            {projects.introduction.map((project, index) => {
+              return (
+                <li key={index} className="py-2">
+                  <div className="d-flex align-items-center">
+                    <div className="icon icon-success mb-2">
+                      <i className="tim-icons icon-tap-02" />
+                    </div>
+                    <div className="ml-3">
+                      <a href={project.route} rel="noopener noreferrer" target="_blank">{project.title}</a>
+                    </div>
+                  </div>
+                </li>
+              )
+            })}
+          </ul>
+          <br />
+          <a
+            className="font-weight-bold text-info mt-5"
+            href=" #"
+            onClick={e => handleShow(e, projects)}
+          >
+            Show all{" "}
+            <i className="tim-icons icon-minimal-right text-info" />
+          </a>
+        </>
+      )
+    }
+    else {
+      return null
+    }
   }
 
-  const hobbies = () => {
-    return (
-      <>
-        <h1>
-          Hobbies
-        </h1>
-        <p>
-          In addition to liking the web and mobile development area, I take part of my time outdoors,
-          to play sports, such as football, table tennis, racing and playing electronic games like League Of Legends.
-        </p>
-      </>
-    )
-  }
-
-  const [cardSelected, setCardSelected] = useState({ title: "job", component: job })
+  //const [cardSelected, setCardSelected] = useState({ title: "job", component: job })
 
   return (
     <>
@@ -143,8 +190,8 @@ export default function About() {
                 <Col className="mt-lg-5" md="5">
                   <Row>
                     <Col className="px-2 py-2" lg="6" sm="12">
-                      <Card className={"card-stats cursor-pointer " + isSelected("academic")}>
-                        <CardBody onClick={() => handleSelect("academic", academic)}>
+                      <Card className={"card-stats cursor-pointer " + isSelected("tab1")}>
+                        <CardBody onClick={() => handleSelect("tab1")}>
                           <Row>
                             <Col md="4" xs="5">
                               <div className="icon-big text-center icon-warning">
@@ -159,8 +206,8 @@ export default function About() {
                       </Card>
                     </Col>
                     <Col className="px-2 py-2" lg="6" sm="12">
-                      <Card className={"card-stats cursor-pointer " + isSelected("job")}>
-                        <CardBody onClick={() => handleSelect("job", job)}>
+                      <Card className={"card-stats cursor-pointer " + isSelected("tab2")}>
+                        <CardBody onClick={() => handleSelect("tab2")}>
                           <Row>
                             <Col md="4" xs="5">
                               <div className="icon-big text-center icon-success">
@@ -177,8 +224,8 @@ export default function About() {
                   </Row>
                   <Row>
                     <Col className="px-2 py-2" lg="6" sm="12">
-                      <Card className={"card-stats cursor-pointer " + isSelected("hobbies")}>
-                        <CardBody onClick={() => handleSelect("hobbies", hobbies)}>
+                      <Card className={"card-stats cursor-pointer " + isSelected("tab3")}>
+                        <CardBody onClick={() => handleSelect("tab3")}>
                           <Row>
                             <Col md="4" xs="5">
                               <div className="icon-big text-center icon-warning">
@@ -186,7 +233,7 @@ export default function About() {
                               </div>
                             </Col>
                             <Col md="8" xs="7">
-                              <CardTitle tag="h4">Hobbies</CardTitle>
+                              <CardTitle tag="h4">Projects</CardTitle>
                             </Col>
                           </Row>
                         </CardBody>
@@ -196,16 +243,9 @@ export default function About() {
                 </Col>
                 <Col md="6">
                   <div className="pl-md-5">
-                    {cardSelected.component()}
-                    {/* <br />
-                    <a
-                      className="font-weight-bold text-info mt-5"
-                      href="#pablo"
-                      onClick={e => e.preventDefault()}
-                    >
-                      Show all{" "}
-                      <i className="tim-icons icon-minimal-right text-info" />
-                    </a> */}
+                    {renderTabs()}
+                    <ScrollingModal isOpen={modal.isOpen} title={modal.title} body={modal.body}
+                      toggle={() => setModal({ ...modal, isOpen: false })} />
                   </div>
                 </Col>
               </Row>
@@ -280,6 +320,16 @@ export default function About() {
               </Col>
             </Row>
           </Container>
+        </section>
+
+        <section className="section section-lg section-safe">
+          <img
+            alt="..."
+            className="path"
+            src={require("../assets//img/path5.png")}
+          />
+          <h1 className="text-center">Professional history</h1>
+          <VerticalTimeline stories={jobTimeline} />
         </section>
 
         <section className="section section-lg section-safe">
