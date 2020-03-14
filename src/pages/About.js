@@ -11,7 +11,7 @@ import {
 } from 'reactstrap'
 import { Footer, Navbar, VerticalTimeline, ScrollingModal } from '../components'
 import { jobTimeline, academic, job, projects } from '../constants/variables'
-import cv from '../assets/tmp/cv.pdf'
+import cv from '../assets/doc/cv.pdf'
 
 export default function About() {
   const [tab, setTab] = useState("tab2")
@@ -29,15 +29,8 @@ export default function About() {
 
   const handleShow = (e, card) => {
     e.preventDefault()
-    const body = card.fullText.map((item, index) => {
-      return (
-        <div key={index}>
-          <h4 style={{ color: "grey", fontWeight: "bold", marginTop: 20 }}>{item.title}</h4>
-          <p>{item.text}</p>
-        </div>
-      )
-    })
-    setModal({ ...modal, title: card.title, body, isOpen: true })
+
+    setModal({ ...modal, title: card.title, body: card.fullText, isOpen: true })
   }
 
   const renderTabs = () => {
@@ -82,8 +75,8 @@ export default function About() {
           <ul className="list-unstyled mt-5">
             {projects.introduction.map((project, index) => {
               return (
-                <li key={index} className="py-2">
-                  <div className="d-flex align-items-center">
+                <li key={index} className="py-2" style={{ marginBottom: -5 }}>
+                  <div className="d-flex align-items-center" >
                     <div className="icon icon-success mb-2">
                       <i className="tim-icons icon-tap-02" />
                     </div>
@@ -111,8 +104,6 @@ export default function About() {
       return null
     }
   }
-
-  //const [cardSelected, setCardSelected] = useState({ title: "job", component: job })
 
   return (
     <>

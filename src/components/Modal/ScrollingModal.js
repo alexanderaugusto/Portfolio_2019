@@ -1,5 +1,5 @@
 import React from 'react'
-import{ Button, Modal, ModalBody, ModalFooter } from 'reactstrap'
+import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap'
 
 export default function ScrollingModal({ isOpen, toggle, title, body }) {
   return (
@@ -11,6 +11,7 @@ export default function ScrollingModal({ isOpen, toggle, title, body }) {
         <button
           type="button"
           className="close"
+          style={{ marginBottom: 15 }}
           data-dismiss="modal"
           aria-hidden="true"
           onClick={toggle}

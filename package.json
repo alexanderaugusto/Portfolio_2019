@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^7.1.2",
     "classnames": "^2.2.6",
     "emailjs-com": "^2.4.1",
+    "mammoth": "^1.4.9",
     "moment": "^2.24.0",
     "node-sass": "^4.13.1",
     "nouislider": "^14.1.1",
