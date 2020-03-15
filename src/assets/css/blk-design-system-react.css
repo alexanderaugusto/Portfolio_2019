@@ -10272,7 +10272,7 @@ hr {
 
 .icon + .icon-text {
   padding-left: 1rem;
-  width: calc(100% - auto - 1); }
+  width: calc(100%); }
 
 .icon-xl {
   width: 5rem;
