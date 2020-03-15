@@ -18,14 +18,14 @@ import {
 import emailjs from 'emailjs-com'
 import SweetAlert from 'react-bootstrap-sweetalert';
 
-export default function Contact() {
+export default function Contact({ location }) {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [phone, setPhone] = useState("")
   const [company, setCompany] = useState("")
   const [message, setMessage] = useState("")
   const [alert, setAlert] = useState({
-    type: "",
+    type: "default",
     show: false,
     message: ""
   })
@@ -44,7 +44,8 @@ export default function Contact() {
       email,
       phone,
       company,
-      message
+      message,
+      service: location.state 
     }
 
     await emailjs.send('outlook', 'template_H3QRI4gm', templateParams, 'user_9WxJaovQiOTodWI5Bb6Bk')
@@ -61,6 +62,7 @@ export default function Contact() {
 
       <SweetAlert
         timeout={5000}
+        title="Message"
         show={alert.show}
         type={alert.type}
         onConfirm={() => setAlert({ ...alert, show: false })}
@@ -98,7 +100,7 @@ export default function Contact() {
                             <FormGroup>
                               <label>Your Name</label>
                               <Input
-                                placeholder="Alexander Augusto"
+                                placeholder="Ex: Alexander Augusto"
                                 type="text"
                                 onChange={e => setName(e.target.value)} />
                             </FormGroup>
@@ -107,7 +109,7 @@ export default function Contact() {
                             <FormGroup>
                               <label>Email address</label>
                               <Input
-                                placeholder="alexander@email.com"
+                                placeholder="Ex: alexander@email.com"
                                 type="email"
                                 onChange={e => setEmail(e.target.value)}
                               />
@@ -119,7 +121,7 @@ export default function Contact() {
                             <FormGroup>
                               <label>Phone</label>
                               <Input
-                                placeholder="(99) 99999-9999"
+                                placeholder="Ex: (99) 99999-9999"
                                 type="text"
                                 onChange={e => setPhone(e.target.value)} />
                             </FormGroup>
@@ -128,7 +130,7 @@ export default function Contact() {
                             <FormGroup>
                               <label>Company</label>
                               <Input
-                                placeholder="Central Modas"
+                                placeholder="Ex: Central Modas"
                                 type="text"
                                 onChange={e => setCompany(e.target.value)} />
                             </FormGroup>
@@ -139,29 +141,41 @@ export default function Contact() {
                             <FormGroup>
                               <label>Message</label>
                               <Input
-                                placeholder="Hello there!"
+                                placeholder="Ex: Hello there!"
                                 type="textarea"
                                 onChange={e => setMessage(e.target.value)} />
                             </FormGroup>
                           </Col>
                         </Row>
-                        <Button
-                          type="submit"
-                          className="btn-round float-right"
-                          color="info"
-                          data-placement="right"
-                          id="tooltip341148792"
-                        // onClick={e => e.preventDefault()}
-                        >
-                          Send message
-                        </Button>
-                        <UncontrolledTooltip
-                          delay={0}
-                          placement="right"
-                          target="tooltip341148792"
-                        >
-                          Send message to Alexander
-                        </UncontrolledTooltip>
+                        <Row>
+                          <Col>
+                            {location.state &&
+                              <h4>Service:
+                              <span style={{ fontSize: 14, marginLeft: 10, color: "#ffc107" }}>{location.state}
+                                </span>
+                              </h4>
+                            }
+                          </Col>
+                          <Col className="text-right">
+                            <Button
+                              type="submit"
+                              className="btn-round float-right"
+                              color="info"
+                              data-placement="right"
+                              id="tooltip341148792"
+                            // onClick={e => e.preventDefault()}
+                            >
+                              Send message
+                            </Button>
+                            <UncontrolledTooltip
+                              delay={0}
+                              placement="right"
+                              target="tooltip341148792"
+                            >
+                              Send message to Alexander
+                            </UncontrolledTooltip>
+                          </Col>
+                        </Row>
                       </Form>
                     </CardBody>
                   </Card>

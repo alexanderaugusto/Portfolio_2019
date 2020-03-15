@@ -1,3 +1,19 @@
 .cursor-pointer{
   cursor: pointer !important;
 }
+
+.my-projects-services-body{
+  padding: 0 !important;
+}
+
+.my-projects-services-body:hover ~ .my-projects-services-footer{
+  display: block;
+}
+
+.my-projects-services-footer{
+  display: none;
+}
+
+.my-projects-services-footer:hover{
+  display: block;
+}

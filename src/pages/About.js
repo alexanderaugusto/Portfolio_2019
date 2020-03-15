@@ -10,7 +10,7 @@ import {
   UncontrolledTooltip
 } from 'reactstrap'
 import { Footer, Navbar, VerticalTimeline, ScrollingModal } from '../components'
-import { jobTimeline, academic, job, projects } from '../constants/variables'
+import { jobTimeline, academic, job, projects } from '../constants/about'
 import cv from '../assets/doc/cv.pdf'
 
 export default function About() {
