@@ -7,10 +7,10 @@
 	}
 }
 
-.icon + .icon-text {
-	padding-left: 1rem;
-	width: calc(100% - #{$icon-size} - 1);
-}
+// .icon + .icon-text {
+// 	padding-left: 1rem;
+// 	width: calc(100% - #{$icon-size} - 1);
+// }
 
 .icon-xl {
 	width: $icon-size-xl;
@@ -21,9 +21,9 @@
 	}
 }
 
-.icon-xl + .icon-text {
-	width: calc(100% - $icon-size-xl - 1);
-}
+// .icon-xl + .icon-text {
+// 	width: calc(100% - $icon-size-xl - 1);
+// }
 
 .icon-lg {
 	width: $icon-size-lg;
@@ -34,9 +34,9 @@
 	}
 }
 
-.icon-lg + .icon-text {
-	width: calc(100% - $icon-size-lg - 1);
-}
+// .icon-lg + .icon-text {
+// 	width: calc(100% - $icon-size-lg - 1);
+// }
 
 .icon-sm {
 	width: $icon-size-sm;
@@ -47,9 +47,9 @@
 	}
 }
 
-.icon-sm + .icon-text {
-	width: calc(100% - $icon-size-sm - 1);
-}
+// .icon-sm + .icon-text {
+// 	width: calc(100% - $icon-size-sm - 1);
+// }
 
 
 // Icons included in shapes
