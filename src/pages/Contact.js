@@ -85,7 +85,7 @@ export default function Contact({ location }) {
             src={require("../assets/img/path4.png")}
           />
 
-          <section className="section">
+          <section className="section section-safe">
             <Container>
               <Row>
                 <Col md="6">

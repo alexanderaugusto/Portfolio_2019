@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Row, Col } from 'reactstrap'
 
+// Images
 import internshipReport from '../assets/doc/internship_report.pdf'
 import myPets from '../assets/doc/my_pets.apk'
 import society from '../assets/doc/society.apk'
@@ -219,6 +220,10 @@ const projects = {
       route: "https://github.com/alexanderaugusto/Swerts-Store"
     },
     {
+      title: "Future Clean",
+      route: "https://appinventor.mit.edu/"
+    },
+    {
       title: "Pokémon Online - Teste",
       route: "https://github.com/alexanderaugusto/Pokemon-Web"
     },
@@ -243,10 +248,10 @@ const projects = {
         </a>
       </h4>
       <p>&nbsp;&nbsp; Central Modas is an e-commerce that was initially meant to be made for
-       a specific store, but the idea was extended to several stores. So any
-       person who has a store, you can register on the website and sell whatever you want. In this
-       project I was responsible for fullstack development, using React Js
-       on the front-end and Node Js with Express and Sequelize ORM for MySQL on the back-end.
+      a specific store, but the idea was extended to several stores. So any
+      person who has a store, you can register on the website and sell whatever you want. In this
+      project I was responsible for fullstack development, using React Js
+      on the front-end and Node Js with Express and Sequelize ORM for MySQL on the back-end.
       </p>
 
       <h4 style={{ color: "grey", fontWeight: "bold", marginTop: 20 }}>
@@ -255,12 +260,12 @@ const projects = {
         </a>
       </h4>
       <p>&nbsp;&nbsp; The Fiscoserv platform uses Business Analytics concepts
-       crossing data from the current scenario of companies with market indicators, helps
-       in decision making, sales strategies, inventory, suppliers, etc. And uses
-       Artificial Intelligence to generate insights, diagnostics and predictions of results
-       and cost of the company, which allow a future perspective for better planning
-       of business. In this I was responsible for developing the entire front-end of the application
-       which was developed using the ReactJs library.
+      crossing data from the current scenario of companies with market indicators, helps
+      in decision making, sales strategies, inventory, suppliers, etc. And uses
+      Artificial Intelligence to generate insights, diagnostics and predictions of results
+      and cost of the company, which allow a future perspective for better planning
+      of business. In this I was responsible for developing the entire front-end of the application
+      which was developed using the ReactJs library.
       </p>
 
       <h4 style={{ color: "grey", fontWeight: "bold", marginTop: 20 }}>
@@ -269,15 +274,15 @@ const projects = {
         </a>
       </h4>
       <p>&nbsp;&nbsp; MyPets was supposed to be a simple and practical way to schedule in
-       PetShops. Often pet owners do not have time to take the pet for a walk.
-       consultation or for a bath and grooming, then with our system they could schedule with a
-       simple touch. The system was divided into two: A software that would be with the PetShop,
-       in this they could schedule appointments, see everything that is scheduled, receive notifications
-       scheduling, and all the other things they already do today. The other would be a
-       application that would be with the PetShop customers, in this the customers could schedule the
-       consultations without leaving the house and would even have the option of the PetShop to pick up the pet at home. In this I
-       I was responsible for developing the application that was developed using the library
-       React Native with the Firebase database.
+      PetShops. Often pet owners do not have time to take the pet for a walk.
+      consultation or for a bath and grooming, then with our system they could schedule with a
+      simple touch. The system was divided into two: A software that would be with the PetShop,
+      in this they could schedule appointments, see everything that is scheduled, receive notifications
+      scheduling, and all the other things they already do today. The other would be a
+      application that would be with the PetShop customers, in this the customers could schedule the
+      consultations without leaving the house and would even have the option of the PetShop to pick up the pet at home. In this I
+      I was responsible for developing the application that was developed using the library
+      React Native with the Firebase database.
       </p>
       <div className="btn-wrapper mb-3">
         <a href={myPets} download><Button color="info">Download APK</Button></a>
@@ -289,11 +294,11 @@ const projects = {
         </a>
       </h4>
       <p>&nbsp;&nbsp; Swerts Store is a desktop software developed for completing the subjects of
-       Object Oriented Programming and Database. It is a simulation of an e-commerce,
-       it sellers can register products and view their stock, while customers
-       they can see the products and buy whatever they want. In this I was responsible for the development
-       of the entire project, together with the other two members of the Vanessa and Renan group, and in it
-       we use Java to develop the software and to store the data using MySQL.
+      Object Oriented Programming and Database. It is a simulation of an e-commerce,
+      it sellers can register products and view their stock, while customers
+      they can see the products and buy whatever they want. In this I was responsible for the development
+      of the entire project, together with the other two members of the Vanessa and Renan group, and in it
+      we use Java to develop the software and to store the data using MySQL.
       </p>
 
       <h4 style={{ color: "grey", fontWeight: "bold", marginTop: 20 }}>
@@ -308,6 +313,9 @@ const projects = {
       receive these complaints and the city could take action on that. Another thing that we tried to
       implement was for people to know where the garbage truck is, because we use an automotive tracker.
       </p>
+      <iframe title="Future Clean" width="100%" height="315" src="https://www.youtube.com/embed/sHA8Sx7YKoY"
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen />
       <Row>
         <Col className="text-center">
           <div className="btn-wrapper mb-3">
@@ -326,9 +334,9 @@ const projects = {
         </a>
       </h4>
       <p>&nbsp;&nbsp; This was the first project I developed when I started studying about
-       Web development. The idea was to get a Poketibia site, at the time I chose OT Pokémon
-       and reproduce it, with my designers and my way of developing. In this one I used
-       classic web development, HTML, CSS, Javascript and JQuery.
+      Web development. The idea was to get a Poketibia site, at the time I chose OT Pokémon
+      and reproduce it, with my designers and my way of developing. In this one I used
+      classic web development, HTML, CSS, Javascript and JQuery.
       </p>
     </div>
   )
