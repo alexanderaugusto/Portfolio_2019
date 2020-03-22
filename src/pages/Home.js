@@ -18,25 +18,25 @@ export default function Home() {
             <a href="/about">
               <div className="icons-container blur-item on-screen mt-5">
                 {/* Center */}
-                <i className="icon fab fa-dev" />
+                <i className="icon icon-info fab fa-dev" />
                 {/* Right 1 */}
-                <i className="icon icon-sm fab fa-git" />
-                <i className="icon icon-sm fab fa-github" />
-                <i className="icon icon-sm fab fa-bitbucket" />
+                <i className="icon icon-info icon-sm fab fa-git" />
+                <i className="icon icon-info icon-sm fab fa-github" />
+                <i className="icon icon-info icon-sm fab fa-bitbucket" />
                 {/* Right 2 */}
-                <i className="icon fab fa-java" />
-                <i className="icon fab fab fa-python" />
-                <i className="icon fab fa-cuttlefish" />
+                <i className="icon icon-info fab fa-java" />
+                <i className="icon icon-info fab fab fa-python" />
+                <i className="icon icon-info fab fa-cuttlefish" />
                 {/* Left 1 */}
-                <i className="icon icon-sm fas fa-database" />
-                <i className="icon icon-sm fas fa-server" />
-                <i className="icon icon-sm fab fa-aws" />
+                <i className="icon icon-info icon-sm fas fa-database" />
+                <i className="icon icon-info icon-sm fas fa-server" />
+                <i className="icon icon-info icon-sm fab fa-aws" />
                 {/* Left 2 */}
-                <i className="icon fab fa-react" />
-                <i className="icon fab fa-js-square" />
-                <i className="icon fab fa-node" />
+                <i className="icon icon-info fab fa-react" />
+                <i className="icon icon-info fab fa-js-square" />
+                <i className="icon icon-info fab fa-node" />
               </div>
-              <span className="blur-hidden h5 text-primary">
+              <span className="blur-hidden h5 text-info">
                 See about Alexander
               </span>
             </a>
