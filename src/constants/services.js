@@ -39,7 +39,7 @@ const plans = [
     color: "primary"
   },
   {
-    title: "FullStack Developer",
+    title: "API Developer",
     subtitle: "Back-end",
     features: {
       left: ["JavaScript", "Node Js", "Sequelize ORM", "MySQL", "MongoDB"],
