@@ -24,6 +24,7 @@
     "react-multi-carousel": "^2.5.3",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
+    "react-spinners": "^0.8.1",
     "react-vertical-timeline-component": "^2.5.0",
     "reactstrap": "^8.4.1"
   },

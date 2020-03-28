@@ -66,7 +66,6 @@ export default function HeaderNavbar({ language, setLanguage }) {
               <Nav>
                 <NavItem className="p-0">
                   <Button
-                    icon
                     data-placement="bottom"
                     title="Change language to Brazilian"
                     color={language === "pt" ? "default" : "link"}
@@ -79,7 +78,6 @@ export default function HeaderNavbar({ language, setLanguage }) {
                 </NavItem>
                 <NavItem className="p-0">
                   <Button
-                    icon
                     data-placement="bottom"
                     title="Change language to English"
                     color={language === "en" ? "default" : "link"}

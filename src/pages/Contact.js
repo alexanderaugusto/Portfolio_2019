@@ -14,7 +14,9 @@ import {
   Input,
   Button,
   UncontrolledTooltip
+
 } from 'reactstrap'
+import ClipLoader from "react-spinners/ClipLoader"
 import emailjs from 'emailjs-com'
 import SweetAlert from 'react-bootstrap-sweetalert';
 
@@ -24,6 +26,13 @@ export default function Contact({ location, language, setLanguage }) {
   const [phone, setPhone] = useState("")
   const [company, setCompany] = useState("")
   const [message, setMessage] = useState("")
+  const [inputError, setInputError] = useState({
+    name: false,
+    email: false,
+    phone: false,
+    message: false
+  })
+  const [loading, setLoading] = useState(false)
   const [alert, setAlert] = useState({
     type: "default",
     show: false,
@@ -36,9 +45,34 @@ export default function Contact({ location, language, setLanguage }) {
     return () => document.body.classList.toggle("landing-page")
   }, [])
 
-  const handleEmail = async (e) => {
+  const checkData = (e) => {
     e.preventDefault()
 
+    if (name.length && email.length && phone.length && message) {
+      handleEmail()
+    } else {
+      setAlert({ type: "danger", message: "Sorry! Some fields are mandatory.", show: true })
+
+      let error = inputError
+
+      if (!name.length) {
+        error.name = true
+      }
+      if (!email.length) {
+        error.email = true
+      }
+      if (!phone.length) {
+        error.phone = true
+      }
+      if (!message.length) {
+        error.message = true
+      }
+
+      setInputError(error)
+    }
+  }
+
+  const handleEmail = async () => {
     const templateParams = {
       name,
       email,
@@ -48,12 +82,16 @@ export default function Contact({ location, language, setLanguage }) {
       service: location.state
     }
 
+    setLoading(true)
+
     await emailjs.send('outlook', 'template_H3QRI4gm', templateParams, 'user_9WxJaovQiOTodWI5Bb6Bk')
       .then((response) => {
         setAlert({ type: "success", message: "Your message was sended to Alexander! Thank you for contact.", show: true })
       }, (err) => {
         setAlert({ type: "danger", message: "An error ocurred when send a message! Plese, try again late.", show: true })
       })
+
+    setLoading(false)
   }
 
   return (
@@ -94,24 +132,32 @@ export default function Contact({ location, language, setLanguage }) {
                       <h1 className="profile-title text-left">Contact Alexander</h1>
                     </CardHeader>
                     <CardBody>
-                      <Form onSubmit={(e) => handleEmail(e)}>
+                      <Form onSubmit={(e) => checkData(e)}>
                         <Row>
                           <Col md="6">
                             <FormGroup>
                               <label>Your Name</label>
                               <Input
+                                style={{ borderColor: inputError.name && "red" }}
                                 placeholder="Ex: Alexander Augusto"
                                 type="text"
-                                onChange={e => setName(e.target.value)} />
+                                onChange={e => {
+                                  setName(e.target.value)                          
+                                  setInputError({ ...inputError, name: false })
+                                }} />
                             </FormGroup>
                           </Col>
                           <Col md="6">
                             <FormGroup>
                               <label>Email address</label>
                               <Input
+                                style={{ borderColor: inputError.email && "red" }}
                                 placeholder="Ex: alexander@email.com"
                                 type="email"
-                                onChange={e => setEmail(e.target.value)}
+                                onChange={e => {
+                                  setEmail(e.target.value)                          
+                                  setInputError({ ...inputError, email: false })
+                                }}
                               />
                             </FormGroup>
                           </Col>
@@ -121,9 +167,13 @@ export default function Contact({ location, language, setLanguage }) {
                             <FormGroup>
                               <label>Phone</label>
                               <Input
+                                style={{ borderColor: inputError.phone && "red" }}
                                 placeholder="Ex: (99) 99999-9999"
                                 type="text"
-                                onChange={e => setPhone(e.target.value)} />
+                                onChange={e => {
+                                  setPhone(e.target.value)                          
+                                  setInputError({ ...inputError, phone: false })
+                                }} />
                             </FormGroup>
                           </Col>
                           <Col md="6">
@@ -141,9 +191,13 @@ export default function Contact({ location, language, setLanguage }) {
                             <FormGroup>
                               <label>Message</label>
                               <Input
+                                style={{ borderColor: inputError.message && "red" }}
                                 placeholder="Ex: Hello there!"
                                 type="textarea"
-                                onChange={e => setMessage(e.target.value)} />
+                                onChange={e => {
+                                  setMessage(e.target.value)                          
+                                  setInputError({ ...inputError, message: false })
+                                }} />
                             </FormGroup>
                           </Col>
                         </Row>
@@ -163,9 +217,17 @@ export default function Contact({ location, language, setLanguage }) {
                               color="info"
                               data-placement="right"
                               id="tooltip341148792"
+                              disabled={loading}
                             // onClick={e => e.preventDefault()}
                             >
-                              Send message
+                              {!loading ? "Send message" :
+                                <ClipLoader
+                                  size={25}
+                                  color="white"
+                                  loading={loading}
+
+                                />
+                              }
                             </Button>
                             <UncontrolledTooltip
                               delay={0}
