@@ -1,5 +1,6 @@
 import React from "react"
 import { Container } from "reactstrap"
+import { mainText} from "../../constants/home"
 
 export default function Header() {
   return (
@@ -15,8 +16,7 @@ export default function Header() {
         <div className="content-center brand">
           <h1 className="h1-seo">Alexander Augusto</h1>
           <h3 className="d-none d-sm-block">
-            Passionate about web and mobile development and now taking to the next level,
-            planning to be a data scientist in the future
+            {mainText}
           </h3>
         </div>
       </Container>

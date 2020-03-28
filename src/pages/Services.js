@@ -97,14 +97,12 @@ export default function Services({ history }) {
                   <Col key={index} sm="4">
                     <Card>
                       <CardBody className="my-projects-services-body">
-                        <a href={project.link} rel="noopener noreferrer" target="_blank">
-                          <img
-                            alt={index + "..."}
-                            className="img-raised"
-                            height={200}
-                            src={project.img}
-                          />
-                        </a>
+                        <img
+                          alt={index + "..."}
+                          className="img-raised"
+                          height={200}
+                          src={project.img}
+                        />
                       </CardBody>
                       <CardFooter className="my-projects-services-footer">
                         {project.description}

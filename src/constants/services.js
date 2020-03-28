@@ -47,6 +47,16 @@ const plans = [
     },
     icon: "fas fa-server",
     color: "success"
+  },
+  {
+    title: "Other service",
+    subtitle: "Anu technological service",
+    features: {
+      left: ["Data Analytics", "Artificial Intelligence", "Excel", ".", "."],
+      right: ["PCI Designer", "Microcontroller", "Shipped", ".", "."]
+    },
+    icon: "tim-icons icon-bulb-63",
+    color: "danger"
   }
 ]
 
