@@ -10,12 +10,15 @@ import {
   UncontrolledTooltip
 } from 'reactstrap'
 import { Footer, Navbar, VerticalTimeline, ScrollingModal } from '../components'
-import { jobTimeline, academic, job, projects } from '../constants/about'
+//import { jobTimeline, academic, job, projects } from '../constants/about'
 import cv from '../assets/doc/cv.pdf'
 
-export default function About() {
+export default function About({ language, setLanguage }) {
   const [tab, setTab] = useState("tab2")
   const [modal, setModal] = useState({ isOpen: false, title: "", body: null })
+
+  // Import texts by current language
+  const { aboutMe, jobTimeline, academic, job, projects, knowledge, aboutCentralModas } = require("../translation/" + language + "/about")
 
   useEffect(() => {
     document.body.classList.toggle("landing-page")
@@ -107,7 +110,7 @@ export default function About() {
 
   return (
     <>
-      <Navbar />
+      <Navbar language={language} setLanguage={setLanguage} />
 
       <div className="wrapper">
         <div className="page-header">
@@ -149,9 +152,7 @@ export default function About() {
                   About me
                 </h1>
                 <p className="text-white mb-3">
-                  Hello everyone, I'm Alexander. I am passionate about technology, and at the moment
-                  I am dedicating my career to web and mobile development. In the future, I have plans to
-                  become a data scientist, I started to learn about this area and I was already fascinated.
+                  {aboutMe}
                 </p>
                 <div className="btn-wrapper mb-3">
                   <a href={cv} download><Button color="info">Download CV</Button></a>
@@ -265,48 +266,22 @@ export default function About() {
               <Col lg="12">
                 <h1 className="text-center">What I know?</h1>
                 <Row className="row-grid justify-content-center">
-                  <Col lg="3">
-                    <div className="info">
-                      <div className="icon icon-warning">
-                        <i className="fas fa-code"></i>
-                      </div>
-                      <h4 className="info-title">Software Development</h4>
-                      <hr className="line-warning" />
-                      <p>
-                        I have knowledge in C / C ++ programming languages, Java, JavaScript and I know a
-                        little about Python, Lua and R. I love creating software with javascript,
-                        I use the React library in the application frontend and the Node Js interpreter
-                        MySQL database and MongoDB on the backend.
-                      </p>
-                    </div>
-                  </Col>
-                  <Col lg="3">
-                    <div className="info">
-                      <div className="icon icon-success">
-                        <i className="tim-icons icon-atom" />
-                      </div>
-                      <h4 className="info-title">Data Science</h4>
-                      <hr className="line-success" />
-                      <p>
-                        I'm start with learning Python and R. After then I will start to learn IA,
-                        Machine Learning and Big Data.
-                      </p>
-                    </div>
-                  </Col>
-                  <Col lg="3">
-                    <div className="info">
-                      <div className="icon icon-info">
-                        <i className="fas fa-microchip"></i>
-                      </div>
-                      <h4 className="info-title">Hardware</h4>
-                      <hr className="line-info" />
-                      <p>
-                        I have an introduction to microcontroller programming, I have already used
-                        microcontrollers from the ARM and MSP family. I also know how to create circuit
-                        boards with Altium Designer and a brief knowledge of 3D modeling with SolidWorks.
-                      </p>
-                    </div>
-                  </Col>
+                  {knowledge.map((know, index) => {
+                    return (
+                      <Col key={index} lg="3">
+                        <div className="info">
+                          <div className={"icon icon-" + know.color}>
+                            <i className={know.icon} />
+                          </div>
+                          <h4 className="info-title">{know.title}</h4>
+                          <hr className={"line-" + know.color} />
+                          <p>
+                            {know.body}
+                          </p>
+                        </div>
+                      </Col>
+                    )
+                  })}
                 </Row>
               </Col>
             </Row>
@@ -334,7 +309,7 @@ export default function About() {
             <h2 className="mb-5">Central Modas</h2>
             <Row className="row-grid justify-content-between">
               <Col md="5">
-                <a href="https://centralmodas-frontend-web.herokuapp.com/" target="blank">
+                <a href={aboutCentralModas.link} target="blank">
                   <img
                     alt="..."
                     className="img-fluid floating"
@@ -345,15 +320,9 @@ export default function About() {
               <Col md="7">
                 <div className="px-md-5">
                   <hr className="line-success" />
-                  <h3>About Central Modas</h3>
+                  <h3>{aboutCentralModas.title}</h3>
                   <p>
-                    It all started with the idea of creating a website for a friend's physical store. So I
-                    joined two friends: Otavio Augusto (store owner) who was responsible for the financial
-                    part of the business and Paulo Júnior who was responsible for marketing the business.
-                    I was responsible for the technology and development of e-commerce.
-                    There came a time when I had the idea of expanding the website to several stores and
-                    not just to a single one, so we adhered to the idea and today Cental Modas is an e-commerce
-                    for shoes, fashion and all kinds of accessories.
+                    {aboutCentralModas.body}
                   </p>
                   <ul className="list-unstyled mt-5">
                     <li className="py-2">
@@ -362,124 +331,76 @@ export default function About() {
                           <i className="tim-icons icon-tap-02" />
                         </div>
                         <div className="ml-3">
-                          <a href="https://centralmodas-frontend-web.herokuapp.com/" rel="noopener noreferrer" target="_blank">Visit the store</a>
+                          <a href={aboutCentralModas.link} rel="noopener noreferrer" target="_blank">Visit the store</a>
                         </div>
                       </div>
                     </li>
                   </ul>
 
                   <Row>
-                    <Col className="text-center">
-                      <small className="d-block text-uppercase font-weight-bold mb-4">
-                        Otavio Augusto
-                      </small>
-                      <img
-                        alt="..."
-                        className="img-fluid rounded-circle shadow"
-                        src={require("../assets/img/otavio_augusto.jpg")}
-                        style={{ width: "150px" }}
-                      />
-                      <p style={{ height: 90 }}>
-                        Civil Engineering student and responsible for the financial part of Central Modas.
-                      </p>
-                      <div className="btn-wrapper profile">
-                        <Button
-                          className="btn-icon btn-neutral btn-round btn-simple"
-                          color="default"
-                          href="https://twitter.com/alexaasf_10"
-                          id="tooltip11"
-                          target="_blank"
-                        >
-                          <i className="fab fa-twitter" />
-                        </Button>
-                        <UncontrolledTooltip delay={0} target="tooltip11">
-                          Follow them
-                        </UncontrolledTooltip>
-                        <Button
-                          className="btn-icon btn-neutral btn-round btn-simple"
-                          color="default"
-                          href="https://www.facebook.com/profile.php?id=100004918871887"
-                          id="tooltip12"
-                          target="_blank"
-                        >
-                          <i className="fab fa-facebook-square" />
-                        </Button>
-                        <UncontrolledTooltip delay={0} target="tooltip12">
-                          Like them
-                        </UncontrolledTooltip>
-                        <Button
-                          className="btn-icon btn-neutral btn-round btn-simple"
-                          color="default"
-                          href="https://www.linkedin.com/in/alexânder-augusto-5b8719149"
-                          id="tooltip13"
-                          target="_blank"
-                        >
-                          <i className="fab fa-linkedin" />
-                        </Button>
-                        <UncontrolledTooltip delay={0} target="tooltip13">
-                          Follow them
-                        </UncontrolledTooltip>
-                      </div>
-                    </Col>
-                    <Col className="text-center">
-                      <small className="d-block text-uppercase font-weight-bold mb-4">
-                        Paulo Júnior
-                      </small>
-                      <img
-                        alt="..."
-                        className="img-fluid rounded-circle shadow"
-                        src={require("../assets/img/paulo_junior.jpg")}
-                        style={{ width: "150px" }}
-                      />
-                      <p style={{ height: 90 }}>
-                        Business student and responsible for the commercial and marketing part of Central Modas.
-                      </p>
-                      <div className="btn-wrapper profile">
-                        <Button
-                          className="btn-icon btn-neutral btn-round btn-simple"
-                          color="default"
-                          href="https://twitter.com/alexaasf_10"
-                          id="tooltip21"
-                          target="_blank"
-                        >
-                          <i className="fab fa-twitter" />
-                        </Button>
-                        <UncontrolledTooltip delay={0} target="tooltip21">
-                          Follow them
-                        </UncontrolledTooltip>
-                        <Button
-                          className="btn-icon btn-neutral btn-round btn-simple"
-                          color="default"
-                          href="https://www.facebook.com/profile.php?id=100004918871887"
-                          id="tooltip22"
-                          target="_blank"
-                        >
-                          <i className="fab fa-facebook-square" />
-                        </Button>
-                        <UncontrolledTooltip delay={0} target="tooltip22">
-                          Like them
-                        </UncontrolledTooltip>
-                        <Button
-                          className="btn-icon btn-neutral btn-round btn-simple"
-                          color="default"
-                          href="https://www.linkedin.com/in/alexânder-augusto-5b8719149"
-                          id="tooltip33"
-                          target="_blank"
-                        >
-                          <i className="fab fa-linkedin" />
-                        </Button>
-                        <UncontrolledTooltip delay={0} target="tooltip33">
-                          Follow them
-                        </UncontrolledTooltip>
-                      </div>
-                    </Col>
+                    {aboutCentralModas.partners.map((partner, index) => {
+                      return (
+                        <Col key={index} className="text-center">
+                          <small className="d-block text-uppercase font-weight-bold mb-4">
+                            {partner.name}
+                          </small>
+                          <img
+                            alt="..."
+                            className="img-fluid rounded-circle shadow"
+                            src={partner.image}
+                            style={{ width: "150px" }}
+                          />
+                          <p style={{ height: 90 }}>
+                            {partner.description}
+                          </p>
+                          <div className="btn-wrapper profile">
+                            <Button
+                              className="btn-icon btn-neutral btn-round btn-simple"
+                              color="default"
+                              href={partner.twitter}
+                              id="tooltip11"
+                              target="_blank"
+                            >
+                              <i className="fab fa-twitter" />
+                            </Button>
+                            <UncontrolledTooltip delay={0} target="tooltip11">
+                              Follow them
+                            </UncontrolledTooltip>
+                            <Button
+                              className="btn-icon btn-neutral btn-round btn-simple"
+                              color="default"
+                              href={partner.facebook}
+                              id="tooltip12"
+                              target="_blank"
+                            >
+                              <i className="fab fa-facebook-square" />
+                            </Button>
+                            <UncontrolledTooltip delay={0} target="tooltip12">
+                              Like them
+                            </UncontrolledTooltip>
+                            <Button
+                              className="btn-icon btn-neutral btn-round btn-simple"
+                              color="default"
+                              href={partner.linkedin}
+                              id="tooltip13"
+                              target="_blank"
+                            >
+                              <i className="fab fa-linkedin" />
+                            </Button>
+                            <UncontrolledTooltip delay={0} target="tooltip13">
+                              Follow them
+                            </UncontrolledTooltip>
+                          </div>
+                        </Col>
+                      )
+                    })}
                   </Row>
                 </div>
               </Col>
             </Row>
           </Container>
         </section>
-        
+
         <Footer />
       </div>
     </>

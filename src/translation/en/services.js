@@ -1,11 +1,13 @@
 import React from 'react'
 
-import centralModas from '../assets/img/central_modas_2.PNG'
-import aurem from '../assets/img/aurem.PNG'
-import fiscoserv from '../assets/img/fiscoserv.PNG'
-import myPets from '../assets/img/my_pets.jpg'
+// Images
+import centralModas from '../../assets/img/central_modas_2.PNG'
+import aurem from '../../assets/img/aurem.PNG'
+import fiscoserv from '../../assets/img/fiscoserv.PNG'
+import myPets from '../../assets/img/my_pets.jpg'
 
-import myPetsDownload from '../assets/doc/my_pets.apk'
+// Documents
+import myPetsDownload from '../../assets/doc/my_pets.apk'
 
 const plans = [
   {

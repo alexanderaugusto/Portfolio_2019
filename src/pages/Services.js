@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react'
 import { Container, Row, Col, CardFooter, Button, Card, CardHeader, CardBody } from 'reactstrap'
 import { Footer, Navbar, MultiCarousel } from '../components'
-import { myProjects, plans } from '../constants/services'
+// import { myProjects, plans } from '../constants/services'
 
-export default function Services({ history }) {
+export default function Services({ history, language, setLanguage }) {
+  // Import texts by current language
+  const { myProjects, plans } = require("../translation/" + language + "/services")
+
   useEffect(() => {
     document.body.classList.toggle("landing-page")
 
@@ -19,7 +22,7 @@ export default function Services({ history }) {
 
   return (
     <>
-      <Navbar />
+      <Navbar language={language} setLanguage={setLanguage} />
 
       <div className="wrapper">
         {/* <div className="page-header">

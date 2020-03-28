@@ -18,7 +18,7 @@ import {
 import emailjs from 'emailjs-com'
 import SweetAlert from 'react-bootstrap-sweetalert';
 
-export default function Contact({ location }) {
+export default function Contact({ location, language, setLanguage }) {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [phone, setPhone] = useState("")
@@ -45,7 +45,7 @@ export default function Contact({ location }) {
       phone,
       company,
       message,
-      service: location.state 
+      service: location.state
     }
 
     await emailjs.send('outlook', 'template_H3QRI4gm', templateParams, 'user_9WxJaovQiOTodWI5Bb6Bk')
@@ -58,7 +58,7 @@ export default function Contact({ location }) {
 
   return (
     <>
-      <Navbar />
+      <Navbar language={language} setLanguage={setLanguage} />
 
       <SweetAlert
         timeout={5000}

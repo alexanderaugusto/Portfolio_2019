@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react'
 import { Footer, Header, Navbar } from '../components'
 
-export default function Home() {
+export default function Home({ language, setLanguage }) {
+  const { mainText } = require("../translation/" + language + "/home")
+
   useEffect(() => {
     document.body.classList.toggle("index-page")
 
@@ -10,9 +12,12 @@ export default function Home() {
 
   return (
     <>
-      <Navbar />
+      <Navbar language={language} setLanguage={setLanguage} />
+
       <div className="wrapper">
-        <Header />
+
+        <Header title={mainText} />
+
         <div className="section section-nucleo-icons">
           <div className="blur-hover">
             <a href="/about">

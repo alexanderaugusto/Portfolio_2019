@@ -2,27 +2,31 @@ import React from 'react'
 import { Button, Row, Col } from 'reactstrap'
 
 // Images
-import internshipReport from '../assets/doc/internship_report.pdf'
-import myPets from '../assets/doc/my_pets.apk'
-import society from '../assets/doc/society.apk'
-import supervisor from '../assets/doc/supervisor.apk'
+import internshipReport from '../../assets/doc/internship_report.pdf'
+import myPets from '../../assets/doc/my_pets.apk'
+import society from '../../assets/doc/society.apk'
+import supervisor from '../../assets/doc/supervisor.apk'
+
+const aboutMe = `Hello everyone, I'm Alexander. I am passionate about technology, and 
+at the moment I am dedicating my career to web and mobile development. In the future, 
+I have plans to become a data scientist, I started to learn about this area and I was already fascinated.`
 
 const jobTimeline = [
   {
     id: 1,
-    companyName: "Fiscoserv (Internship)",
-    companyAddress: "Inatel Business Incubador",
-    date: "05/2019 - 12/2019",
-    icon: "tim-icons icon-chart-bar-32",
-    description: "I worked as a React front-end developer of the Fiscoserv platform."
-  },
-  {
-    id: 2,
     companyName: "Aurem (Internship)",
     companyAddress: "Inatel Business Incubador",
     date: "01/2020 - present",
     icon: "tim-icons icon-globe-2",
     description: "I worked as a web developer fullstack for Aurem's platform."
+  },
+  {
+    id: 2,
+    companyName: "Fiscoserv (Internship)",
+    companyAddress: "Inatel Business Incubador",
+    date: "05/2019 - 12/2019",
+    icon: "tim-icons icon-chart-bar-32",
+    description: "I worked as a React front-end developer of the Fiscoserv platform."
   },
 ]
 
@@ -334,7 +338,10 @@ const projects = {
         </a>
       </h4>
       <p>&nbsp;&nbsp; This was the first project I developed when I started studying about
-      Web development. The idea was to get a Poketibia site, at the time I chose OT Pokémon
+      Web development. The idea was to get a Poketibia site, at the time I chose
+      <a href="https://otpokemon.com/" rel="noopener noreferrer" target="_blank">
+          &nbsp; OT Pokémon &nbsp;
+      </a>
       and reproduce it, with my designers and my way of developing. In this one I used
       classic web development, HTML, CSS, Javascript and JQuery.
       </p>
@@ -342,10 +349,69 @@ const projects = {
   )
 }
 
+const knowledge = [
+  {
+    title: "Software Development",
+    body: `I have knowledge in C / C ++ programming languages, Java, JavaScript and I 
+    know a little about Python, Lua and R. I love creating software with javascript, 
+    I use the React library in the application frontend and the Node Js interpreter 
+    MySQL database and MongoDB on the backend.`,
+    icon: "fas fa-code",
+    color: "warning"
+  },
+  {
+    title: "Data Science",
+    body: `I'm start with learning Python and R. After then I will start to learn IA, Machine 
+    Learning and Big Data.`,
+    icon: "tim-icons icon-atom",
+    color: "success"
+  },
+  {
+    title: "Hardware",
+    body: `I have an introduction to microcontroller programming, I have already used 
+    microcontrollers from the ARM and MSP family. I also know how to create circuit boards 
+    with Altium Designer and a brief knowledge of 3D modeling with SolidWorks.`,
+    icon: "fas fa-microchip",
+    color: "info"
+  }
+]
+
+const aboutCentralModas = {
+  title: "About Central Modas",
+  body: `It all started with the idea of creating a website for a friend's physical store. 
+  So I joined two friends: Otavio Augusto (store owner) who was responsible for the 
+  financial part of the business and Paulo Júnior who was responsible for marketing the 
+  business. I was responsible for the technology and development of e-commerce. There 
+  came a time when I had the idea of expanding the website to several stores and not just 
+  to a single one, so we adhered to the idea and today Cental Modas is an e-commerce for 
+  shoes, fashion and all kinds of accessories.`,
+  link: "https://centralmodas-frontend-web.herokuapp.com/",
+  partners: [
+    {
+      image: require("../../assets/img/otavio_augusto.jpg"),
+      name: "Otavio Augusto",
+      description: `Civil Engineering student and responsible for the financial part of Central Modas.`,
+      twitter: " #",
+      facebook: " #",
+      linkedin: " #"
+    },
+    {
+      image: require("../../assets/img/paulo_junior.jpg"),
+      name: "Paulo Junior",
+      description: `Business student and responsible for the commercial and marketing part of Central Modas.`,
+      twitter: " #",
+      facebook: " #",
+      linkedin: " #"
+    }
+  ]
+}
 
 export {
+  aboutMe,
   jobTimeline,
   academic,
   job,
-  projects
+  projects,
+  knowledge, 
+  aboutCentralModas
 }

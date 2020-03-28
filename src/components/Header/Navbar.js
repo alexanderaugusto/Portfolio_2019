@@ -9,10 +9,15 @@ import {
   Nav,
   Container,
   Row,
-  Col
+  Col,
+  Button
 } from "reactstrap"
 
-export default function HeaderNavbar() {
+// Flags
+import en from "../../assets/img/US.png"
+import br from "../../assets/img/BR.png"
+
+export default function HeaderNavbar({ language, setLanguage }) {
   const [collapseOpen, setCollapseOpen] = useState(false)
   const [collapseOut, setCollapseOut] = useState("")
   const [color, setColor] = useState("navbar-transparent")
@@ -89,6 +94,36 @@ export default function HeaderNavbar() {
               </Col>
             </Row>
           </div>
+
+          <Nav navbar style={{ marginRight: 50 }}>
+            <NavItem className="p-0">
+              <Button
+                icon
+                data-placement="bottom"
+                title="Change language to Brazilian"
+                color={language === "pt" ? "default" : "link"}
+                className="btn-round btn-icon"
+                style={{ color: "white", marginRight: -8 }}
+                onClick={() => setLanguage("pt")}
+              >
+                <img src={br} alt="br" />
+              </Button>
+            </NavItem>
+            <NavItem className="p-0">
+              <Button
+                icon
+                data-placement="bottom"
+                title="Change language to English"
+                color={language === "en" ? "default" : "link"}
+                className="btn-round btn-icon"
+                style={{ color: "white", borderRadius: 25 }}
+                onClick={() => setLanguage("en")}
+              >
+                <img src={en} alt="en" />
+              </Button>
+            </NavItem>
+          </Nav>
+
           <Nav navbar>
             <NavItem className="p-0">
               <NavLink
