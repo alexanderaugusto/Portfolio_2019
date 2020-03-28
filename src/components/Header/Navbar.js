@@ -53,12 +53,47 @@ export default function HeaderNavbar({ language, setLanguage }) {
     >
       <Container>
         <div className="navbar-translate">
-          <NavbarBrand
-            to="/"
-            tag={Link}
-          >
-            Alexander Augusto
-          </NavbarBrand>
+          <Nav>
+            <NavItem>
+              <NavbarBrand
+                to="/"
+                tag={Link}
+              >
+                Alexander Augusto
+              </NavbarBrand>
+            </NavItem>
+            <NavItem>
+              <Nav>
+                <NavItem className="p-0">
+                  <Button
+                    icon
+                    data-placement="bottom"
+                    title="Change language to Brazilian"
+                    color={language === "pt" ? "default" : "link"}
+                    className="btn-round btn-icon"
+                    style={{ color: "white", marginRight: -8 }}
+                    onClick={() => setLanguage("pt")}
+                  >
+                    <img src={br} alt="br" />
+                  </Button>
+                </NavItem>
+                <NavItem className="p-0">
+                  <Button
+                    icon
+                    data-placement="bottom"
+                    title="Change language to English"
+                    color={language === "en" ? "default" : "link"}
+                    className="btn-round btn-icon"
+                    style={{ color: "white" }}
+                    onClick={() => setLanguage("en")}
+                  >
+                    <img src={en} alt="en" />
+                  </Button>
+                </NavItem>
+              </Nav>
+            </NavItem>
+          </Nav>
+
           <button
             aria-expanded={collapseOpen}
             className="navbar-toggler navbar-toggler"
@@ -94,35 +129,6 @@ export default function HeaderNavbar({ language, setLanguage }) {
               </Col>
             </Row>
           </div>
-
-          <Nav navbar style={{ marginRight: 50 }}>
-            <NavItem className="p-0">
-              <Button
-                icon
-                data-placement="bottom"
-                title="Change language to Brazilian"
-                color={language === "pt" ? "default" : "link"}
-                className="btn-round btn-icon"
-                style={{ color: "white", marginRight: -8 }}
-                onClick={() => setLanguage("pt")}
-              >
-                <img src={br} alt="br" />
-              </Button>
-            </NavItem>
-            <NavItem className="p-0">
-              <Button
-                icon
-                data-placement="bottom"
-                title="Change language to English"
-                color={language === "en" ? "default" : "link"}
-                className="btn-round btn-icon"
-                style={{ color: "white", borderRadius: 25 }}
-                onClick={() => setLanguage("en")}
-              >
-                <img src={en} alt="en" />
-              </Button>
-            </NavItem>
-          </Nav>
 
           <Nav navbar>
             <NavItem className="p-0">

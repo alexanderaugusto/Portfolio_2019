@@ -48,7 +48,7 @@ export default function About({ language, setLanguage }) {
             href=" #"
             onClick={e => handleShow(e, academic)}
           >
-            Show all{" "}
+            {language === "pt" ? "Monstrar mais" : "Show all"}{" "}
             <i className="tim-icons icon-minimal-right text-info" />
           </a>
         </>
@@ -65,7 +65,7 @@ export default function About({ language, setLanguage }) {
             href=" #"
             onClick={e => handleShow(e, job)}
           >
-            Show all{" "}
+            {language === "pt" ? "Monstrar mais" : "Show all"}{" "}
             <i className="tim-icons icon-minimal-right text-info" />
           </a>
         </>
@@ -97,7 +97,7 @@ export default function About({ language, setLanguage }) {
             href=" #"
             onClick={e => handleShow(e, projects)}
           >
-            Show all{" "}
+            {language === "pt" ? "Monstrar mais" : "Show all"}{" "}
             <i className="tim-icons icon-minimal-right text-info" />
           </a>
         </>
