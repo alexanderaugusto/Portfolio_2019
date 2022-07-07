@@ -12,7 +12,7 @@
     "classnames": "^2.2.6",
     "emailjs-com": "^2.4.1",
     "mammoth": "^1.4.9",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "node-sass": "^4.13.1",
     "nouislider": "^14.1.1",
     "perfect-scrollbar": "^1.5.0",
